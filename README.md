@@ -53,6 +53,4 @@ box.vm.provision "shell", inline: <<-SHELL
               mkdir -p /raid/part{1,2,3,4,5}
               for i in $(seq 1 5); do mount /dev/md0p$i /raid/part$i; done
   	  SHELL
-
 ```
-
