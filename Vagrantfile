@@ -99,7 +99,7 @@ Vagrant.configure("2") do |config|
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk
               spisok=`sudo lshw -short | grep disk | awk '$4 < 300 {print $2}'`
-              mdadm --create --verbose /dev/md0 -l 6 -n 10 $spisok                           #/dev/sd{a,b,c,d,e,f,g,h,i,j}
+              mdadm --create --verbose /dev/md0 -l 5 -n 10 $spisok                           
               mkdir /etc/mdadm
               touch /etc/mdadm/mdadm.conf
               chmod 777 /etc/mdadm/mdadm.conf
