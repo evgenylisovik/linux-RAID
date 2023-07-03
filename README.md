@@ -27,7 +27,7 @@ Vagrantfile, который сразу собирает систему с под
 
 ```
 ### СОЗДАЕМ BASH-СКРИПТ СО СБОРКОЙ RAID-5 ВНУТРИ VAGRANTFILE:
-`
+```
 box.vm.provision "shell", inline: <<-SHELL
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
@@ -50,10 +50,8 @@ box.vm.provision "shell", inline: <<-SHELL
               for i in $(seq 1 5); do mount /dev/md0p$i /raid/part$i; done
   	  SHELL
 
-`
+```
 
-mdadm --create --verbose /dev/md0 -l 6 -n 5 /dev/sd{b,c,d,e,f}
-`
 ### ТАКЖЕ МЕНЯЕМ КОНТРОЛЬНУЮ СУММУ:
 `
 "iso_checksum": "017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26"
