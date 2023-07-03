@@ -28,9 +28,8 @@ Vagrantfile, который сразу собирает систему с под
 ```
 ### СОЗДАЕМ BASH-СКРИПТ СО СБОРКОЙ RAID-5 ВНУТРИ VAGRANTFILE:
 ```
+### Устанавливаем утилиты для работы с массивами
 box.vm.provision "shell", inline: <<-SHELL
-	      mkdir -p ~root/.ssh
-              cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk
 ```
 ### При создании машины через раз возникает ошибка: при первом запуске диск может именоваться sda, а при следующем sdb. Поэтому добавляем следующие строчки:
